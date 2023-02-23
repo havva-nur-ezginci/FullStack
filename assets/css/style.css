@@ -51,3 +51,63 @@ header .authentication-link ul li a{
 header .authentication-link ul li a:hover{/*uzerine gelindiginde*/
     color: white;
 }
+nav{
+    position: relative;
+    width: 100%;
+    padding: 0 0;
+    background: darkkhaki;
+    height: 90px;
+}
+nav .manzara{
+    position: relative;
+    width: 30%;
+    float: left;
+    height: 90px;
+}
+nav .manzara img{
+    height: 65px;
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*resmi manzara nın tam ortasına getirmis olduk*/
+}
+nav .menu{
+    width: 70%;
+    float: left;
+    height: 90px;
+}
+nav .menu ul{
+    list-style: none;
+    padding: 0;
+    max-height: 90px;
+    line-height: 90px;
+    text-align: center;
+    margin: 0 auto;
+}
+nav .menu ul li{
+    display: inline-block;
+    border-right: 1px solid #fff;
+    line-height: 25px;
+}
+nav .menu ul li:last-child{
+    border-right: unset;
+}
+nav .menu ul li a{
+    text-decoration: none;/* alt çizgi*/
+    color: #fff;
+    font-size: 20px;
+    padding: 0 20px;/*1.yukarı aşağı,2.sağ sol*/
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+}
+nav .menu ul li a.active{
+    color: grey;
+}
+/*a.active{
+    color: grey !important;/* yuksek oncelik vermek için !important kullanılır
+}*/
+nav .menu ul li a:hover{/*üzerine gelindiğinde*/
+    color: black;
+}
