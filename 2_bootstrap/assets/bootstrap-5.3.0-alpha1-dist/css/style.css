@@ -1,3 +1,7 @@
 .navbar-nav .nav-link.active{
     color: black !important;
 }
+.posts > *,.posts > * ::after,.posts> * ::before{
+    /*postalrın altındaki herşeyin öncesine ve sonrasına*/
+    padding: 0.09em;
+}
