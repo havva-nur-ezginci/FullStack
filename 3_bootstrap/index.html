@@ -5,13 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/uicons-solid-rounded/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,700&display=swap" rel="stylesheet">
+    
+
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>    
+<body>
+    <!-- As a heading -->
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 text-white">To Do List</span>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h2 class="card-title fw-normal">Create Task</h2>
+                  </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-9">
+                            <input type="text" class="form-control" placeholder="New Task Name">
+                        </div>
+                        <div class="col-3">
+                            <a href="" class="btn btn-success w-100 btn-add-task-list">Add Task List <i class="fa fa-plus ms-2"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+        </div>
+    </div>
     
+</div>
+    
+
+
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
