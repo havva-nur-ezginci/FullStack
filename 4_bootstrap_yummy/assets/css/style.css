@@ -1,0 +1,15 @@
+/* direk class olarak verildi
+body{
+    background-color: #fff;
+}*/
+.fw-700{
+    /* font weight*/
+    font-weight: 700 !important;
+}
+.font-size28px{
+    font-size: 28px;
+
+}
+.h-90px{
+    height: 90px;
+}
