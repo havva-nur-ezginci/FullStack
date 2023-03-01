@@ -2,14 +2,34 @@
 body{
     background-color: #fff;
 }*/
+body > *{
+    font-family: "Open Sans";
+}
+body > * p{
+    color: #4f4f5a;
+}
+/*.text-p-default{
+    color: #4f4f5a;
+}*/
 .fw-700{
     /* font weight*/
     font-weight: 700 !important;
 }
 .font-size28px{
     font-size: 28px;
-
+}
+.font-size64px{
+    font-size: 64px;
 }
 .h-90px{
     height: 90px;
+}
+.bg-section{
+    background-color: #eee;
+}
+.font-amatic{
+    font-family: 'Amatic SC', cursive;
+}
+.w-60{
+    width: 60%;
 }
