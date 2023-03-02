@@ -25,9 +25,9 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container my-5">
     <div class="row">
-        <div class="col-12 mt-5">
+        <div class="col-12">
             <div class="card w-100">
                 <div class="card-header">
                     <h2 class="card-title fw-normal">Create Task</h2>
@@ -44,7 +44,7 @@
 
                 </div>
               </div>
-
+<!-- Task List-->
               <div class="card w-100 mt-5">
                 <div class="card-header">
                     <div class="row">
@@ -63,43 +63,70 @@
                     </div>    
                 </div>
                 <div class="card-body">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label bg-light" for="flexCheckDefault">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, omnis?
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, omnis?
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, omnis?
-                        </label>
-                      </div>
-
-
+                  <div class="row">
+                    <ul class="list-group task-list px-3">
+                      <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask">
+                        <label class="checkbox" for="selectTask">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li>
+                      <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask2">
+                        <label class="checkbox" for="selectTask2">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li>
+                      <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask3">
+                        <label class="checkbox" for="selectTask3">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+                   
+             
+              </div>
+<!-- Completed Tasks -->
+              <div class="card w-100 mt-5">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <h2 class="card-title fw-normal mb-0">Completed Tasks</h2>
+                        </div>
+                        <div class="col-6">
+                            <a href="" class="btn btn-warning w-100">Clear List</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <ul class="list-group task-list px-3">
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
+                    </ul>
+                </div>
                 </div>
               </div>
 
-              <div class="mt-5 w-100">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Şehir Seçin</option>
-                    <option value="1">İstanbul</option>
-                    <option value="2">Ankara</option>
-                    <option value="3">Bursa</option>
-                  </select>
-              </div>
+        </div>
+
+              
               
         </div>
     </div>
-    
-</div>
-    
+
+<footer class="bg-dark h-50px">
+  <p class="m-0 text-white text-center footer-text">
+    &copy; Havva Nur Ezginci
+  </p>
+</footer>
 
 
 
