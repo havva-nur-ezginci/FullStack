@@ -33,3 +33,33 @@ body > * p{
 .w-60{
     width: 60%;
 }
+.w-85{
+    width: 85%;
+}
+/* main section:first-child()*/
+main section:nth-child(1)
+/*main section:nth-child(1) .container,
+main section:nth-child(1) .container .row*/{ 
+    height: calc(100vh - 90px);
+}
+.icon-play{
+    color: #dc3545;
+    font-size: 28px !important;
+    margin-right: 4px;
+}
+/* 
+.font-16px{
+    font-size: 16px;
+}
+.text-yummy-color{
+    color: 7f7f90;
+}
+*/
+.navbar ul li a{
+    font-size: 16px;
+    color: 7f7f90;
+    font-family: 'Inter', sans-serif;
+}
+.navbar ul li a:hover{
+    color: black;
+}
