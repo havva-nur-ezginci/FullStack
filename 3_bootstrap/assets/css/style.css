@@ -20,3 +20,15 @@
 .footer-text{
     line-height: 50px;
 }
+/* @media screen and (max-width: 320px){
+    .col-9,.col-6,.col-3{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .btn-add-task-list{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 390px){
+ 
+} */
