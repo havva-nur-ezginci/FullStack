@@ -9,6 +9,7 @@
 </head>
 <body>
     <script src="assets/js/script.js"></script>
+    <!-- if - switch - while -->
     <script>
     var bool_="ddd";
     if(bool_==true){
@@ -43,5 +44,160 @@
     }
 
     </script>
+   
+   <!-- String fonk. obje-->
+    <script>
+        // String
+        var firstName = "Havva Nur";
+        var lastName = "Ezginci";
+
+        var fullName = firstName.concat(" ",lastName);
+        console.log(fullName);// Havva Nur Ezginci
+        console.log(fullName.length); // 17
+        console.log(fullName.toUpperCase());//HAVVA NUR EZGINCI
+        console.log(fullName.toLowerCase());//havva nur ezginci
+
+        var result = fullName.indexOf("N");//0 dan baslar, bulamazsa -1 
+        console.log(result);//6
+
+        result = fullName.lastIndexOf("i");
+        console.log(result);//16
+
+        result = fullName.startsWith("Ha");
+        console.log(result);//true
+
+        result = fullName.replace("Havva","Değiştir");
+        console.log(result);//Değiştir Nur Ezginci
+
+        var text = "istanbul,ankara,izmir,manisa";
+        result = text.split(",");
+        console.log(result);//['istanbul', 'ankara', 'izmir', 'manisa']
+        result = text.split(",",2);
+        console.log(result);// ['istanbul', 'ankara']
+
+        // trim boşluk kaldır
+        let mail = " gmail.com ";
+        text = "K";
+        console.log(text+mail+text);//K gmail.com K
+        console.log(text+mail.trimStart()+text);//Kgmail.com K
+        console.log(text+mail.trimEnd()+text);//K gmail.comK
+        console.log(text+mail.trim()+text);//Kgmail.comK
+
+        result = fullName.substring(3,9);//4 den 9 a kadar
+        console.log(result);//va Nur
+
+
+
+        // Template Literals
+
+    var person = {
+      firstName: "Nur",
+      lastName: ".....",
+      fullName: function () {
+          return this.firstName + " " + this.lastName;
+      },
+      appointmentDate: new Date(2023, 0, 29, 15, 30, 0),
+    };
+
+    var appDate = person.appointmentDate.toLocaleDateString();
+    console.log(appDate);//29.01.2023
+    var appDay  = person.appointmentDate.getDay();
+    console.log(appDay);//0
+    var appHour = person.appointmentDate.getHours();
+    console.log(appHour);//15
+    var appMinutes = person.appointmentDate.getMinutes();
+    console.log(appMinutes);//30
+    var test = person.appointmentDate.toLocaleTimeString();
+    console.log(test);//15:30:00
+   
+
+    var templateLiteralsText = `Sayın ${person.fullName()} ${appDate} 
+    tarihi ${appDay} günü randevunuz oluşturulmuştur.`;
+
+    console.log(templateLiteralsText);
+
+
+    </script>
+   
+   <!-- Array -->
+    <script>
+        var dizi=["Hale","Mehmet","Karagün",111,true];
+        var dizi2= new Array();
+
+        console.log(dizi);// ['Hale', 'Mehmet', 'Karagün', 111, true]
+
+        // fonksiyon dizisi
+        var functions = [
+            function f1(){
+                return "fonksiyon1";
+            },
+            function f2(){
+                return "fonksiyon2";
+            },
+            function f3(){
+                return "fonksiyon3";
+            }
+        ];
+        console.log(functions);//[ƒ, ƒ, ƒ]
+        console.log(functions[1]);//f2(){return "fonksiyon2";}
+        console.log(functions[1]());//fonksiyon2
+
+        dizi2=[1,2,3,4,5];
+
+        var result = dizi+","+dizi2;
+        console.log(result);//Hale,Mehmet,Karagün,111,true1,2,3,4,5
+
+        result = dizi.concat(dizi2);
+        console.log(result);//['Hale', 'Mehmet', 'Karagün', 111, true, 1, 2, 3, 4, 5]
+
+        result2 = result.pop();//pop sondaki elemanı çıkarır
+        console.log(result2);//5 
+        console.log(result);//['Hale', 'Mehmet', 'Karagün', 111, true, 1, 2, 3, 4]
+
+        result2 = result.shift();//shift ilk elemanı çıkarır
+        console.log(result2);//Hale
+        console.log(result);//['Mehmet', 'Karagün', 111, true, 1, 2, 3, 4]
+
+        var array_=[];
+        array_.push(dizi);//push sonuna eleman ekler,
+        //push ile birden fazla elemanı aynı anda ekleyebiliriz.
+        console.log(array_);//[Array(5)]
+        array_.push("aaa");
+        console.log(array_);//[Array(5), 'aaa']
+        array_.unshift("deneme");//unshift dizinin başına eleman ekler
+        console.log(array_);//['deneme', Array(5), 'aaa']
+
+        // splice(index,kaç eleman) diziden eleman çıkarma verilen 
+        array_.splice(0,3);
+        console.log(array_);//[]
+
+        array_=['a',2,3,4];
+        array_.reverse();
+        console.log(array_);//[4, 3, 2, 'a']
+
+        dizi=["zHale","Mehmet","Karagün"];
+        dizi.sort();//sort alfabetik olarak sıralar
+        console.log(dizi);//['Karagün', 'Mehmet', 'zHale']
+
+        dizi.forEach(function(value,index,array){
+            console.log(value+" "+index);
+        });
+
+        dizi=[];
+
+        var islem1 ={ option:"toplama"};
+        var islem2 ={ option:"bolme"};
+        dizi.push(islem1,islem2);
+        console.log(dizi);//[{…}, {…}]
+
+        var islemler = dizi.map(function (value, index, array) {
+        return value.option;
+    });
+        console.log(islemler);//['toplama', 'bolme']
+
+
+    </script>
+
+
 </body>
 </html>
