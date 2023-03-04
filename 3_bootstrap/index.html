@@ -28,17 +28,17 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <div class="card w-100">
+            <div class="card w-100" id="createTaskCard">
                 <div class="card-header">
                     <h2 class="card-title fw-normal">Create Task</h2>
                   </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row" id="createTaskRow">
                         <div class="col-12 col-sm-10 col-md-9 col-lg-6">
-                            <input type="text" class="form-control" placeholder="New Task Name">
+                            <input type="text" class="form-control" placeholder="New Task Name" id="txtTaskName">
                         </div>
                         <div class="col-12 col-sm-2 col-md-3 col-lg-6 mt-3 mt-md-0">
-                            <a href="" class="btn btn-success w-100 btn-add-task-list">Add Task List <i class="fa fa-plus ms-2"></i></a>
+                            <a href="javascript:void(0)" class="btn btn-success w-100 btn-add-task-list" id="btnAddTaskList">Add Task List <i class="fa fa-plus ms-2"></i></a>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                         <div class="col-12 col-md-3 col-3">
                             <h2 class="card-title fw-normal mb-0">Task List</h2>
                         </div>
-                        <div class="col-12 col-md-3 mt-3 mt-md-0">
+                        <div class="col-12 col-md-3 mt-3 mt-md-0" id="btnCompleted">
                             <a href="" class="btn btn-success w-100">Tamamlandı</a>
                         </div>
                         <div class="col-12 col-md-3 mt-3 mt-md-0">
@@ -115,6 +115,14 @@
                 </div>
               </div>
 
+              <select class="form-select mt-5" aria-label="Default select example" id="sehirler">
+                <option selected>Şehir Seçin</option>
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">Konya</option>
+                <option value="3">Mersin</option>
+              </select>
+
         </div>
 
               
@@ -131,5 +139,6 @@
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/scriptDom.js"></script>
 </body>
 </html>
