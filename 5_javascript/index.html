@@ -9,6 +9,7 @@
 </head>
 <body>
     <script src="assets/js/script.js"></script>
+
     <!-- if - switch - while -->
     <script>
     var bool_="ddd";
@@ -43,8 +44,22 @@
         sayi3-=5;
     }
 
+    function note(puan){
+        return puan > 60 ? "Geçti" : "Kaldı";
+    }
+
+    console.log(note(79));//Geçti
+
+    function note2(puan){
+        //60 dan buyukse paranteze girer.
+        return puan > 60 ? (puan > 80 ? "AA" : "BB")  : "FF";
+    }
+
+    console.log(note2(90));//AA
+
+
     </script>
-   
+
    <!-- String fonk. obje-->
     <script>
         // String
@@ -198,6 +213,47 @@
 
     </script>
 
+    <!-- Functions - window - try/catch -->
+    <script>
+        //parametresiz fonksiyon
+        function note(){
+            let sum=0;
+            console.log(arguments);//[20, 30]
+
+            for(let i=0;i<arguments.length;i++){
+                sum+=arguments[i];
+            }
+            return sum;
+        }
+        console.log(note(20,30));//50
+
+        function note3(x=10){
+            console.log(x);
+        }
+        note3();
+
+        // window
+        function windowLocation()
+    {
+        //window.location.reload();//sürekli yenilenir
+        console.log(window.location.host);//127.0.0.1:5500
+    }
+    console.log(window.location);
+    windowLocation();
+
+    // try/catch
+
+    try{;
+        console.log(sonuc);
+
+    }catch(excption){
+        console.log(excption.message);//sonuc is not defined
+        console.log(excption.name);//ReferenceError
+    }finally{
+        console.log("final");
+    }
+
+    </script>
 
 </body>
 </html>
