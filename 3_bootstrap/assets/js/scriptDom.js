@@ -184,17 +184,17 @@
 //     console.log("paste");
 // });
 
-var sehirler = document.querySelector("#sehirler");
+// var sehirler = document.querySelector("#sehirler");
 
-let self = this;
-var value = 5;
-sehirler.addEventListener("change", function (event) {
-    console.log("select change");
-    console.log(this.value);//3
-    console.log(self.value);//5
-});
+// let self = this;
+// var value = 5;
+// sehirler.addEventListener("change", function (event) {
+//     console.log("select change");
+//     console.log(this.value);//3
+//     console.log(self.value);//5
+// });
 
-txtTaskName.addEventListener("paste")
+// txtTaskName.addEventListener("paste")
 
 
 
