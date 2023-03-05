@@ -6,13 +6,17 @@ addEventListener("DOMContentLoaded" ,function(event){
     let btnCompletedTask = document.querySelector("#btnCompletedTask");
     let btnRemoveTask = document.querySelector("#btnRemoveTask");
     let btnSelectAll = document.querySelector("#btnSelectAll");
+    let btnClearList = document.querySelector("#btnClearList");
 
     let newTaskName = document.querySelector("#newTaskName");
     let taskListUl = document.querySelector("#taskListUl");
+    let completedListUl = document.querySelector("#completedListUl");
 
     let taskList = [];
     let completedTaskList = [];
     let selectedList = [];
+
+    let wrapperLiElementID = 0;
 
     Array.prototype.remove = function () {
         var what, a = arguments, L = a.length, ax;
@@ -42,65 +46,64 @@ addEventListener("DOMContentLoaded" ,function(event){
     //Tümünü seç butonu 
     btnSelectAll.addEventListener("click",function(event){
         //event.preventDefault(); - href= javascript:void(0)
-       
-       if (taskList.length > selectedList.length)
-        {//yeni eklenen ancak seçili olmayan tasks
+
+        let allSelected = true;
+        if (taskList.length > selectedList.length)
+        {
             taskList.forEach(function (value, index, array) {
                 let selectInput = document.querySelector("#input-" + value);
 
-                let taskCheck = selectedList.indexOf(value);
-                if (taskCheck === -1){
-                    selectedList.push(value);
+                if (!selectInput.checked){
+                    allSelected = false;
                     selectInput.checked = true;
+                    selectedList.push(value);
                 }
             });
         }
-        else
-        {
+            
+        if(allSelected){//tümü seçiliyse hepsinin seçimini kaldır
+                
             taskList.forEach(function (value, index, array) {
                 let selectInput = document.querySelector("#input-" + value);
-
                 if (selectInput.checked) {
-                    selectInput.checked = false;
-
-                    //selectedList.remove(value); //alttaki kod yerine kullanılabilir.
-                    let removeItemIndex = selectedList.indexOf(value);
-                    if (removeItemIndex !== -1) {
-                        selectedList.splice(removeItemIndex, 1);//array den kaldır
-                    }
-                   
+                    selectInput.checked = false;                                    
                 }
-            });
+                });
+            selectedList = []
         }
-
-
     });
 
+
+    // Listeden Çıkar 
     btnRemoveTask.addEventListener("click", function (event) {
-
-        if (!selectedList.length)
-        {
-            alert("Seçili bir task yok");
-        }
-        selectedList.forEach(function (value, index, array) {
-            let wrapperLiElement = document.querySelector("#wrapper-li-" + value);
-            wrapperLiElement.remove();
-
-            taskList.remove(value);
-        });
-        selectedList = [];
-    });
-
-    btnCompletedTask.addEventListener("click", function (event) {
-
         if (!selectedList.length)
         {
             alert("Seçili task yok");
         }
+       else{
+        
+        selectedList.forEach(function (value, index, array) {
+
+            let wrapperLiElement = document.querySelector("#wrapper-li-" + value);
+            wrapperLiElement.remove();
+            taskList.remove(value);
+            
+        });
+        selectedList = [];
+    }
+    });
+
+    //Tamamlandı
+    btnCompletedTask.addEventListener("click", function (event) {
+
+        if (selectedList.length <= 0)
+        {
+            alert("Seçili task yok!");
+        }
         else
         {
             completedTaskList = selectedList.concat(completedTaskList);
-            console.log(completedTaskList);
+
             completedTaskList.forEach(function (value, index, array) {
 
                 let label = document.querySelector('label[for="input-' + value + '"]');
@@ -110,13 +113,14 @@ addEventListener("DOMContentLoaded" ,function(event){
                 let deleteLi = document.querySelector("#wrapper-li-" + value);
                 deleteLi.remove();
 
-                selectedList.remove(value);
                 taskList.remove(value);
             });
+            selectedList = [];
         }
     });
 
     btnClearList.addEventListener("click", function (event) {
+
        let liList = document.querySelectorAll(".completed-li");
 
        liList.forEach(function (value, key, parent) {
@@ -126,58 +130,7 @@ addEventListener("DOMContentLoaded" ,function(event){
        completedTaskList = [];
     });
 
-    function inputChangeAction(inputID)
-    {
-        let check = selectedList.indexOf(inputID);
-
-        if (check === -1)
-        {
-            selectedList.push(inputID);
-            // console.log(selectedList);
-        }
-        else
-        {
-            selectedList.remove(inputID);
-            // console.log(selectedList);
-        }
-    }
-    function createLiElement()
-    {
-        let inputID = taskList.length + 1;
-
-        taskList.push(inputID);
-
-
-        let li = document.createElement("li");
-        li.className = "list-group-item task-list-item px-3";
-        li.id = "wrapper-li-" + inputID;
-        /**
-         * wrapper-li-1
-         * wrapper-li-2
-         * wrapper-li-3
-         */
-
-        let inputElement = document.createElement("input");
-        inputElement.type = "checkbox";
-        inputElement.className = "select-task me-3 select-task";
-        inputElement.id = "input-" + inputID;
-        inputElement.onchange = function (){
-            inputChangeAction(inputID);
-        };
-
-        let label = document.createElement("label");
-        label.setAttribute("for", "input-" + inputID)
-        label.innerText = newTaskName.value;
-
-        let iElement = document.createElement("i");
-        iElement.className = "fa fa-2x fa-trash text-primary float-end trashed";
-
-        li.appendChild(inputElement);
-        li.appendChild(label);
-        li.appendChild(iElement);
-
-        taskListUl.appendChild(li);
-    }
+   
 
     function createCompletedElement(lblText)
     {
@@ -192,13 +145,21 @@ addEventListener("DOMContentLoaded" ,function(event){
         completedListUl.appendChild(completedLi);
     }
 
+    function inputChangeAction(inputID){
 
-    
+        let check = selectedList.indexOf(inputID);//yoksa -1 doner
 
+        if (check === -1){
+            selectedList.push(inputID);
+        }
+        else{
+            selectedList.remove(inputID);
+        }
+    }
 
     function createLiElement(){
 
-        let inputID = taskList.length+1;
+        let inputID = ++wrapperLiElementID;
         taskList.push(inputID);
 
         let li = document.createElement("li");
@@ -209,6 +170,9 @@ addEventListener("DOMContentLoaded" ,function(event){
         inputElement.type = "checkbox";
         inputElement.className = "select-task mx-2";
         inputElement.id = "input-"+inputID;
+        inputElement.onchange = function (){
+            inputChangeAction(inputID);
+        };
 
         let label = document.createElement("label");
         label.setAttribute("for","input-"+inputID);
@@ -222,7 +186,6 @@ addEventListener("DOMContentLoaded" ,function(event){
         li.appendChild(iElement);
 
         taskListUl.appendChild(li);  
-
     }
     
     });
