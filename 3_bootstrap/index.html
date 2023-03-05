@@ -35,7 +35,7 @@
                 <div class="card-body">
                     <div class="row" id="createTaskRow">
                         <div class="col-12 col-sm-10 col-md-9 col-lg-6">
-                            <input type="text" class="form-control" placeholder="New Task Name" id="txtTaskName">
+                            <input type="text" class="form-control" placeholder="New Task Name" id="newTaskName">
                         </div>
                         <div class="col-12 col-sm-2 col-md-3 col-lg-6 mt-3 mt-md-0">
                             <a href="javascript:void(0)" class="btn btn-success w-100 btn-add-task-list" id="btnAddTaskList">Add Task List <i class="fa fa-plus ms-2"></i></a>
@@ -51,21 +51,21 @@
                         <div class="col-12 col-md-3 col-3">
                             <h2 class="card-title fw-normal mb-0">Task List</h2>
                         </div>
-                        <div class="col-12 col-md-3 mt-3 mt-md-0" id="btnCompleted">
-                            <a href="" class="btn btn-success w-100">Tamamlandı</a>
+                        <div class="col-12 col-md-3 mt-3 mt-md-0">
+                            <a href="javascript:void(0)" class="btn btn-success w-100" id="btnCompletedTask">Tamamlandı</a>
                         </div>
                         <div class="col-12 col-md-3 mt-3 mt-md-0">
-                            <a href="" class="btn btn-danger w-100 ">Listeden Çıkar</a>
+                            <a href="javascript:void(0)" class="btn btn-danger w-100 " id="btnRemoveTask">Listeden Çıkar</a>
                         </div>
                         <div class="col-12 col-md-3 mt-3 mt-md-0">
-                            <a href="" class="btn btn-primary w-100">Tümünü Seç</a>
+                            <a href="javascript:void(0)" class="btn btn-primary w-100" id="btnSelectAll">Tümünü Seç</a>
                         </div>   
                     </div>    
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <ul class="list-group task-list px-3">
-                      <li class="list-group-item task-list-item">
+                    <ul class="list-group task-list px-3" id="taskListUl">
+                      <!-- <li class="list-group-item task-list-item">
                         <input class="select-task mx-2" type="checkbox" value="" id="selectTask">
                         <label class="checkbox" for="selectTask">Lorem ipsum dolor.</label>
                         <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
@@ -79,7 +79,7 @@
                         <input class="select-task mx-2" type="checkbox" value="" id="selectTask3">
                         <label class="checkbox" for="selectTask3">Lorem ipsum dolor.</label>
                         <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
-                      </li>
+                      </li> -->
                     </ul>
                 </div>
               </div>
@@ -137,8 +137,8 @@
 </footer>
 
 
-
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/scriptDom.js"></script>
+    <!--  <script src="assets/js/scriptDom.js"></script> --> 
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

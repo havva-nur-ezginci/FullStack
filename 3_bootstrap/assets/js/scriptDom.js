@@ -79,7 +79,7 @@
 // createTaskRow.removeChild(spanElement);
 // console.log(createTaskRow.children);
 
-// var txtTaskName = document.querySelector("#txtTaskName");
+// var newTaskName = document.querySelector("#newTaskName");
 // createTaskRow.children[0].removeChild(spanElement);
 
 
@@ -166,21 +166,21 @@
 // });
 
 
-// txtTaskName.addEventListener("focus", function (event) {
+// newTaskName.addEventListener("focus", function (event) {
 //     console.log("focus");//inputa dokunulduğunda
 // });
 
-// txtTaskName.addEventListener("change", function (event) {
+// newTaskName.addEventListener("change", function (event) {
 //     console.log("change");
 // });
 
-// txtTaskName.addEventListener("cut", function (event) {
+// newTaskName.addEventListener("cut", function (event) {
 //     console.log("cut");
 // });
-// txtTaskName.addEventListener("copy", function (event) {
+// newTaskName.addEventListener("copy", function (event) {
 //     console.log("copy");
 // });
-// txtTaskName.addEventListener("paste", function (event) {
+// newTaskName.addEventListener("paste", function (event) {
 //     console.log("paste");
 // });
 
@@ -194,8 +194,13 @@
 //     console.log(self.value);//5
 // });
 
-// txtTaskName.addEventListener("paste")
+// newTaskName.addEventListener("paste")
 
+
+addEventListener("DOMContentLoaded" ,function(event){
+// Tüm içerik yüklendiğinde çalışır
+
+});
 
 
 
