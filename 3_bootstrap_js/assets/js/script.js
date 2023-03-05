@@ -119,6 +119,7 @@ addEventListener("DOMContentLoaded" ,function(event){
         }
     });
 
+    // Listeyi temizle
     btnClearList.addEventListener("click", function (event) {
 
        let liList = document.querySelectorAll(".completed-li");
