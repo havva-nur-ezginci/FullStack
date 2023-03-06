@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/uicons-solid-rounded/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,700&display=swap" rel="stylesheet">
+    
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- As a heading -->
+<nav class="navbar bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 text-white text">To Do List</span>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card w-100" id="createTaskCard">
+                <div class="card-header">
+                    <h2 class="card-title fw-normal">Create Task</h2>
+                  </div>
+                <div class="card-body">
+                    <div class="row" id="createTaskRow">
+                        <div class="col-12 col-sm-10 col-md-9 col-lg-6">
+                            <input type="text" class="form-control" placeholder="New Task Name" id="newTaskName">
+                        </div>
+                        <div class="col-12 col-sm-2 col-md-3 col-lg-6 mt-3 mt-md-0">
+                            <a href="javascript:void(0)" class="btn btn-success w-100 btn-add-task-list" id="btnAddTaskList">Add Task List <i class="fa fa-plus ms-2"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+<!-- Task List-->
+              <div class="card w-100 mt-5">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12 col-md-3 col-3">
+                            <h2 class="card-title fw-normal mb-0">Task List</h2>
+                        </div>
+                        <div class="col-12 col-md-3 mt-3 mt-md-0">
+                            <a href="javascript:void(0)" class="btn btn-success w-100" id="btnCompletedTask">Completed</a>
+                        </div>
+                        <div class="col-12 col-md-3 mt-3 mt-md-0">
+                            <a href="javascript:void(0)" class="btn btn-danger w-100 " id="btnRemoveTask">Remove List</a>
+                        </div>
+                        <div class="col-12 col-md-3 mt-3 mt-md-0">
+                            <a href="javascript:void(0)" class="btn btn-primary w-100" id="btnSelectAll">All Select</a>
+                        </div>   
+                    </div>    
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <ul class="list-group task-list px-3" id="taskListUl">
+                      <!-- <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask">
+                        <label class="checkbox" for="selectTask">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li>
+                      <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask2">
+                        <label class="checkbox" for="selectTask2">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li>
+                      <li class="list-group-item task-list-item">
+                        <input class="select-task mx-2" type="checkbox" value="" id="selectTask3">
+                        <label class="checkbox" for="selectTask3">Lorem ipsum dolor.</label>
+                        <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
+                      </li> -->
+                    </ul>
+                </div>
+              </div>
+                   
+             
+              </div>
+<!-- Completed Tasks -->
+              <div class="card w-100 mt-5">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h2 class="card-title fw-normal mb-0">Completed Tasks</h2>
+                        </div>
+                        <div class="col-12 col-md-6 mt-3 mt-md-0">
+                            <a href="" class="btn btn-warning w-100" id="btnClearList">Clear List</a>
+                        </div>
+                    </div>    
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <ul class="list-group task-list px-3" id="completedListUl">
+                      <!-- <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li> -->
+                    </ul>
+                </div>
+                </div>
+              </div>
+
+              <select class="form-select mt-5" aria-label="Default select example" id="sehirler">
+                <option selected>Şehir Seçin</option>
+                <option value="1">İstanbul</option>
+                <option value="2">Ankara</option>
+                <option value="3">Konya</option>
+                <option value="3">Mersin</option>
+              </select>
+
+        </div>
+
+              
+              
+        </div>
+    </div>
+
+<footer class="bg-dark h-50px">
+  <p class="m-0 text-white text-center footer-text">
+    &copy; Havva Nur Ezginci
+  </p>
+</footer>
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  
+</body>
+</html>
