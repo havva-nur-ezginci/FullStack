@@ -26,6 +26,15 @@
 </nav>
 
 <div class="container my-5">
+  <a href="" id="btnFadeIn">Fade In</a>
+  <a href="" id="btnFadeOut">Fade Out</a>
+  <a href="" id="btnSlideUp">Slide Up</a>
+  <a href="" id="btnSlideDown">Slide Down</a>
+  <a href="" id="btnSlideToggle">Slide Toggle</a>
+  <a href="" id="btnAnimation">Animation</a>
+  <a href="" id="btnAnimation2">Animation2</a>
+  <a href="" id="btnAnimationStop">Animation Stop</a>
+
     <div class="row">
         <div class="col-12">
             <div class="card w-100" id="createTaskCard">
@@ -36,6 +45,8 @@
                     <div class="row" id="createTaskRow">
                         <div class="col-12 col-sm-10 col-md-9 col-lg-6">
                             <input type="text" class="form-control" placeholder="New Task Name" id="newTaskName">
+                            <input type="checkbox" id="taskCheck">
+                            <label>Şartları kabul ediyorum.</label>
                         </div>
                         <div class="col-12 col-sm-2 col-md-3 col-lg-6 mt-3 mt-md-0">
                             <a href="javascript:void(0)" class="btn btn-success w-100 btn-add-task-list" id="btnAddTaskList">Add Task List <i class="fa fa-plus ms-2"></i></a>
@@ -64,8 +75,8 @@
                 </div>
                 <div class="card-body">
                   <div class="row">
-                    <ul class="list-group task-list px-3" id="taskListUl">
-                      <!-- <li class="list-group-item task-list-item">
+                    <ul class="list-group task-list px-3 taskListUl" id="taskListUl">
+                      <li class="list-group-item task-list-item">
                         <input class="select-task mx-2" type="checkbox" value="" id="selectTask">
                         <label class="checkbox" for="selectTask">Lorem ipsum dolor.</label>
                         <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
@@ -79,7 +90,7 @@
                         <input class="select-task mx-2" type="checkbox" value="" id="selectTask3">
                         <label class="checkbox" for="selectTask3">Lorem ipsum dolor.</label>
                         <i class="fa fa-2x fa-trash text-primary float-end trashed" ></i>
-                      </li> -->
+                      </li>
                     </ul>
                 </div>
               </div>
@@ -101,15 +112,15 @@
                 <div class="card-body">
                   <div class="row">
                     <ul class="list-group task-list px-3" id="completedListUl">
-                      <!-- <li class="list-group-item task-list-item px-3">
-                        <label class="checkbox">Lorem ipsum dolor.</label>
-                      </li>
                       <li class="list-group-item task-list-item px-3">
                         <label class="checkbox">Lorem ipsum dolor.</label>
                       </li>
                       <li class="list-group-item task-list-item px-3">
                         <label class="checkbox">Lorem ipsum dolor.</label>
-                      </li> -->
+                      </li>
+                      <li class="list-group-item task-list-item px-3">
+                        <label class="checkbox">Lorem ipsum dolor.</label>
+                      </li>
                     </ul>
                 </div>
                 </div>
@@ -138,6 +149,140 @@
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+<!-- JQuery-->
+    <script>
+
+      //------ Selectors -------
+
+      // $("li").css("color","green");// css ya key: value yada obje
+      let liCss = {
+        color : "blue",
+        textTransform : "uppercase"
+      }
+     $("li").css(liCss);
+
+     $(".taskListUl li").css("color","yellow");//.taskListUl  class ındaki li ler
+
+     $(".taskListUl li:odd").css("color","yellow");//çift 
+     $(".taskListUl li:even").css("color","red");// tek
+     $(".taskListUl li:first-child").css("color","blue");
+     $(".taskListUl li:nth-child(3)").css("color","blue");// nth-child istediğmiz eleman
+
+
+     $("[href]").css("color","blue");// attrribute lere ulaşmak için [] kullanılır.
+     //butona normal den farklı ulaşılır.
+     $(":button").css("color","red");
+
+     //----------- Events --------
+
+     $("#btnAddTaskList").click(function(event){ // # id için
+      event.preventDefault();//buton varsayılanı kalkar.
+
+     // $(".taskListUl li:odd").hide();//hide : gizle
+     });
+
+     $("#btnAddTaskList").dblclick(function(event){ // dblclic çift tıkla
+      event.preventDefault();//buton varsayılanı kalkar.
+
+     // $(".taskListUl li:odd").show();//show : göster
+     });
+
+     //------ Sayfa Yüklendiğinde - Animasyonlar  ---------
+
+     $(function (){// döküman yani sayfamız hazır olduğunda fonksiyonu çalıştır.
+    
+    });
+
+
+     $(document).ready(function (event){// döküman yani sayfamız hazır olduğunda fonksiyonu çalıştır.
+
+      $("#btnFadeIn").click(function(event){// butonlar geri gelir.
+        event.preventDefault();
+        $("a.btn").fadeIn(1000);//1000 : 1sn 
+      });
+      $("#btnFadeOut").click(function(event){// butonlar görünmez hale gelir.
+        event.preventDefault();
+        $("a.btn").fadeOut(1000);//1000 : 1sn 
+      });
+
+
+      $("#btnSlideUp").click(function(event){  // butonlar görünmez hale gelir.
+        event.preventDefault();
+        $("a.btn").slideUp(1000);//1000 : 1sn 
+      });
+      $("#btnSlideDown").click(function(event){// butonlar geri gelir.
+        event.preventDefault();
+        $("a.btn").slideDown(1000);//1000 : 1sn 
+      });
+      
+//bootstrap da navbar da toogle butonu ile de yapılabilir.
+      $("#btnSlideToggle").click(function(event){// butonları aç / kapat
+        event.preventDefault();
+        $("a.btn").slideToggle(1000);//1000 : 1sn 
+      });
+
+
+      $("#btnAnimation").click(function(event){
+        event.preventDefault();
+
+        let animateObject = {
+          opacity: 0,
+          width: 0,
+          height: 0
+        };
+        $("a.btn").animate(animateObject,1000);
+      });
+
+      $("#btnAnimation2").click(function(event){
+        event.preventDefault();
+
+        let animateObject = {
+          opacity: 1,
+          width: "fit-content",
+          height: 40
+        };
+        $("a.btn").animate(animateObject,1000,function(){
+          //animasyon bittiğinde bu fonksiyon çalışır ama durdurulması gerekir.
+
+        });
+      });
+
+      $("#btnAnimationStop").click(function(event){
+        event.preventDefault();
+
+        $("a.btn").stop();
+      });
+
+   //---------- Add - RemoveClass - Parent Element ---------
+
+      let newTaskName = $("#newTaskName");
+      //let newTaskName = $("#newTaskName").val();
+      //let newTaskName2 = $("[type='text']");
+
+      
+
+     $("#btnAddTaskList").click(function(event){ // # id için
+      event.preventDefault();//buton varsayılanı kalkar.
+
+      alert(newTaskName.val());// input daki değeri alert olarak bastırma
+
+      // addbuton una bastığımızda checkbox basılımı kontrol edelim.
+      
+      //let taskCheckBox = $("[type='checkbox']:checked");
+     // let taskCheckBox = $("#taskCheck");
+      if ($("#taskCheck").is(':checked')){
+        console.log("basili");
+     }
+
+     
+  });
+
+    });
+
+
+    </script>
 
   
 </body>
