@@ -1,3 +1,5 @@
+  // https://jsonplaceholder.typicode.com/
+  
   /** readyState
          * 0 => İstek henüz başlatılmadı
          * 1 => İstek açıldı
@@ -43,45 +45,49 @@ btnGetData.addEventListener("click", function (event) {
         if (this.readyState === 4 && this.status === 200)
         {
             //console.log(this.response);//gelen data 
-            response = this.response;
-            console.log(typeof response);//string
-            response = JSON.parse(response);
+            response = this.response;//string
+            console.log(typeof response);
+            
+            response = response.replace(/\\n\\*/g, ' ');// \ kaçış karakteri, * herşey gelebilir, /g global
             //console.log(response);
-            console.log(typeof response);//object
-            //response = response.replace(/\\n\\*/g, ' ');
-         
-            // // console.log(this.response.indexOf("\\n"));
+            response = JSON.parse(response);//object
+            //console.log(response);
+            // // console.log(response.indexOf("\\n"));
 
         }
 
     });
-
-
-
-    
+   
 });
-
-// btnGetContent.addEventListener("click", function (event) {
-//     if (gelenCevep !== undefined && gelenCevep !== null && Array.isArray(gelenCevep))
+// gelen data
+//[
 //     {
-//         gelenCevep.forEach(function (row) {
-//             let h3 = document.createElement("h3");
-//             let title = row.title;
-//             h3.innerText = title;
-//             if (row.id % 2 === 0)
-//             {
-//                 h3.style.color = "green";
-//             }
-//             else
-//             {
-//                 h3.style.color = "red";
-//             }
+//       "userId": 1,
+//       "id": 1,
+//       "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+//       "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+//     },
+//     ...
 
-//             let paragraph = document.createElement("p");
-//             paragraph.innerText = row.body;
+//İçeriği ayrıştırıp istenilen hale getirme
+btnGetContent.addEventListener("click", function (event) {
+    if (response !== undefined && response !== null && Array.isArray(response)){
 
-//             divContent.appendChild(h3);
-//             divContent.appendChild(paragraph);
-//         });
-//     }
-// });
+        response.forEach(function (row) {//value yerine istediğimizi yazabiliriz.
+            let h3 = document.createElement("h3");
+            let title = row.title;
+            h3.innerText = title;
+            if (row.id % 2 === 0){
+                h3.style.color = "green";
+            }else {
+                h3.style.color = "red";
+            }
+
+            let paragraph = document.createElement("p");
+            paragraph.innerText = row.body;
+
+            divContent.appendChild(h3);
+            divContent.appendChild(paragraph);
+        });
+    }
+});
