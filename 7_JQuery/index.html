@@ -26,14 +26,20 @@
 </nav>
 
 <div class="container my-5">
-  <a href="" id="btnFadeIn">Fade In</a>
-  <a href="" id="btnFadeOut">Fade Out</a>
-  <a href="" id="btnSlideUp">Slide Up</a>
-  <a href="" id="btnSlideDown">Slide Down</a>
-  <a href="" id="btnSlideToggle">Slide Toggle</a>
-  <a href="" id="btnAnimation">Animation</a>
-  <a href="" id="btnAnimation2">Animation2</a>
-  <a href="" id="btnAnimationStop">Animation Stop</a>
+
+  <p id="deneme">Lorem ipsum dolor sit amet consectetur.</p>
+
+  <div class="col-12 mx-5 mb-4 px-5">
+   <a href="" id="btnFadeIn">Fade In</a>
+   <a href="" id="btnFadeOut">Fade Out</a>
+   <a href="" id="btnSlideUp">Slide Up</a>
+   <a href="" id="btnSlideDown">Slide Down</a>
+   <a href="" id="btnSlideToggle">Slide Toggle</a>
+   <a href="" id="btnAnimation">Animation</a>
+   <a href="" id="btnAnimation2">Animation2</a>
+   <a href="" id="btnAnimationStop">Animation Stop</a>
+  </div>
+  
 
     <div class="row">
         <div class="col-12">
@@ -272,10 +278,27 @@
       
       //let taskCheckBox = $("[type='checkbox']:checked");
      // let taskCheckBox = $("#taskCheck");
+
       if ($("#taskCheck").is(':checked')){
         console.log("basili");
      }
 
+     let label =$("li.task-list-item").html();
+     let text = $("li.task-list-item").text();
+
+    //  $("#deneme").addClass("text-danger");
+    //  $("#deneme").removeClass("text-danger");
+    // $("#deneme").toggleClass("text-warning");// hem ekler hem çıkarır
+    // $("#deneme").toggle();//gizle ve göster
+
+    // element oluşturma
+    var liElement = $("<li></li>");
+    liElement.text(newTaskName.val());
+    $("#deneme").html("");
+    $("#deneme").append(liElement);
+
+
+     
      
   });
 
