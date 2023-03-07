@@ -38,9 +38,10 @@
    <a href="" id="btnAnimation">Animation</a>
    <a href="" id="btnAnimation2">Animation2</a>
    <a href="" id="btnAnimationStop">Animation Stop</a>
+   <a href="javascript:void(0) " class="btn btn-info w-25 " id="btnChangeWindow">Change Window</a>
   </div>
-  
 
+ 
     <div class="row">
         <div class="col-12">
             <div class="card w-100" id="createTaskCard">
@@ -311,11 +312,14 @@
    children.each(function(index,element){
     //console.log(element);
    })
-
-  
   });
 
+  $("#btnChangeWindow").click(function(event){
+    window.location.href= "newHtml.html";
+
     });
+  });
+
 
 
     </script>
