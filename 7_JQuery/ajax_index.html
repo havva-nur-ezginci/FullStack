@@ -166,19 +166,19 @@
       let route = "todos";
       let requestRoute = url +route;
 
-      // // GET isteği ; $.get(url,fonksiyon(gelen data,staus){})
-      // $.get(requestRoute,function(data,status){
-      //   console.log(data);//Array(200)
-      //   console.log(status);//success
-      //   if(status==="success" && Array.isArray(data)){
-      //     data.forEach(function (row) {
-      //       console.log(row);//{userId: 7, id: 134, title: 'molestiae doloribus et laborum quod ea', completed: false}
-      //       //posts.append(row.title.substr(0,7) + "<br>");
-      //       //posts.append(row.title.toUpperCase() + "<br>");
-      //       posts.append(row.title + "<br>");
-      //     });
-      //   }
-      // });
+      // GET isteği ; $.get(url,fonksiyon(gelen data,staus){})
+      $.get(requestRoute,function(data,status){
+        console.log(data);//Array(200)
+        console.log(status);//success
+        if(status==="success" && Array.isArray(data)){
+          data.forEach(function (row) {
+            console.log(row);//{userId: 7, id: 134, title: 'molestiae doloribus et laborum quod ea', completed: false}
+            //posts.append(row.title.substr(0,7) + "<br>");
+            //posts.append(row.title.toUpperCase() + "<br>");
+            posts.append(row.title + "<br>");
+          });
+        }
+      });
 
   
 //ajax isteği ; obje veya url alır.
