@@ -29,19 +29,11 @@
 
   <p id="pElement">Lorem ipsum dolor sit amet consectetur.</p>
 
-  <div class="col-12 mx-5 mb-4 px-5">
-   <a href="" id="btnFadeIn">Fade In</a>
-   <a href="" id="btnFadeOut">Fade Out</a>
-   <a href="" id="btnSlideUp">Slide Up</a>
-   <a href="" id="btnSlideDown">Slide Down</a>
-   <a href="" id="btnSlideToggle">Slide Toggle</a>
-   <a href="" id="btnAnimation">Animation</a>
-   <a href="" id="btnAnimation2">Animation2</a>
-   <a href="" id="btnAnimationStop">Animation Stop</a>
-  </div>
-  
-
     <div class="row">
+      <div class="col-12 mx-5 mb-4 px-5">
+        <div id="posts"></div>
+      </div>
+      
         <div class="col-12">
             <div class="card w-100" id="createTaskCard">
                 <div class="card-header">
@@ -160,163 +152,80 @@
 <!-- JQuery-->
     <script>
 
-      //------ Selectors -------
-
-      // $("li").css("color","green");// css ya key: value yada obje
-      let liCss = {
-        color : "blue",
-        textTransform : "uppercase"
-      }
-     $("li").css(liCss);
-
-     $(".taskListUl li").css("color","yellow");//.taskListUl  class ındaki li ler
-
-     $(".taskListUl li:odd").css("color","yellow");//çift 
-     $(".taskListUl li:even").css("color","red");// tek
-     $(".taskListUl li:first-child").css("color","blue");
-     $(".taskListUl li:nth-child(3)").css("color","blue");// nth-child istediğmiz eleman
-
-
-     $("[href]").css("color","blue");// attrribute lere ulaşmak için [] kullanılır.
-     //butona normal den farklı ulaşılır.
-     $(":button").css("color","red");
-
-     //----------- Events --------
-
-     $("#btnAddTaskList").click(function(event){ // # id için
-      event.preventDefault();//buton varsayılanı kalkar.
-
-     // $(".taskListUl li:odd").hide();//hide : gizle
-     });
-
-     $("#btnAddTaskList").dblclick(function(event){ // dblclic çift tıkla
-      event.preventDefault();//buton varsayılanı kalkar.
-
-     // $(".taskListUl li:odd").show();//show : göster
-     });
-
-     //------ Sayfa Yüklendiğinde - Animasyonlar  ---------
+     //------ Ajax ---------
 
      $(function (){// döküman yani sayfamız hazır olduğunda fonksiyonu çalıştır.
-    
-    });
 
-
-     $(document).ready(function (event){// döküman yani sayfamız hazır olduğunda fonksiyonu çalıştır.
-
-      $("#btnFadeIn").click(function(event){// butonlar geri gelir.
-        event.preventDefault();
-        $("a.btn").fadeIn(1000);//1000 : 1sn 
-      });
-      $("#btnFadeOut").click(function(event){// butonlar görünmez hale gelir.
-        event.preventDefault();
-        $("a.btn").fadeOut(1000);//1000 : 1sn 
-      });
-
-
-      $("#btnSlideUp").click(function(event){  // butonlar görünmez hale gelir.
-        event.preventDefault();
-        $("a.btn").slideUp(1000);//1000 : 1sn 
-      });
-      $("#btnSlideDown").click(function(event){// butonlar geri gelir.
-        event.preventDefault();
-        $("a.btn").slideDown(1000);//1000 : 1sn 
-      });
+      let url = "https://jsonplaceholder.typicode.com/";
+      let posts = $("#posts");
       
-//bootstrap da navbar da toogle butonu ile de yapılabilir.
-      $("#btnSlideToggle").click(function(event){// butonları aç / kapat
-        event.preventDefault();
-        $("a.btn").slideToggle(1000);//1000 : 1sn 
-      });
-
-
-      $("#btnAnimation").click(function(event){
-        event.preventDefault();
-
-        let animateObject = {
-          opacity: 0,
-          width: 0,
-          height: 0
-        };
-        $("a.btn").animate(animateObject,1000);
-      });
-
-      $("#btnAnimation2").click(function(event){
-        event.preventDefault();
-
-        let animateObject = {
-          opacity: 1,
-          width: "fit-content",
-          height: 40
-        };
-        $("a.btn").animate(animateObject,1000,function(){
-          //animasyon bittiğinde bu fonksiyon çalışır ama durdurulması gerekir.
-
-        });
-      });
-
-      $("#btnAnimationStop").click(function(event){
-        event.preventDefault();
-
-        $("a.btn").stop();
-      });
-
-   //---------- Add - RemoveClass - Parent Element ---------
-
-      let newTaskName = $("#newTaskName");
-      //let newTaskName = $("#newTaskName").val();
-      //let newTaskName2 = $("[type='text']");
-
-      
-
+  
      $("#btnAddTaskList").click(function(event){ // # id için
       event.preventDefault();//buton varsayılanı kalkar.
 
-      alert(newTaskName.val());// input daki değeri alert olarak bastırma
+      let route = "todos";
+      let requestRoute = url +route;
 
-      // addbuton una bastığımızda checkbox basılımı kontrol edelim.
+      // // GET isteği ; $.get(url,fonksiyon(gelen data,staus){})
+      // $.get(requestRoute,function(data,status){
+      //   console.log(data);//Array(200)
+      //   console.log(status);//success
+      //   if(status==="success" && Array.isArray(data)){
+      //     data.forEach(function (row) {
+      //       console.log(row);//{userId: 7, id: 134, title: 'molestiae doloribus et laborum quod ea', completed: false}
+      //       //posts.append(row.title.substr(0,7) + "<br>");
+      //       //posts.append(row.title.toUpperCase() + "<br>");
+      //       posts.append(row.title + "<br>");
+      //     });
+      //   }
+      // });
+
+  
+//ajax isteği ; obje veya url alır.
+      $.ajax({
+                method: "GET",
+                url: requestRoute
+            }).done(function (data, status) {//done;  4 ise İstek tamamlandıysa
+                if (status === 'success' && Array.isArray(data)){
+                    data.forEach(function (row) {
+                     //console.log(row);//{userId: 7, id: 134, title: 'molestiae doloribus et laborum quod ea', completed: false}
+                      posts.append(row.title + "<br>");
+                    })
+                }
+            }).fail(function () {// hata oluşursa
+
+            }).then(function(success){
+            //console.log("then girdi");
+            });
       
-      //let taskCheckBox = $("[type='checkbox']:checked");
-     // let taskCheckBox = $("#taskCheck");
-
-      if ($("#taskCheck").is(':checked')){
-        console.log("basili");
-     }
-
-     let label =$("li.task-list-item").html();
-     let text = $("li.task-list-item").text();
-
-    //  $("#pElement").addClass("text-danger");
-    //  $("#pElement").removeClass("text-danger");
-    // $("#pElement").toggleClass("text-warning");// hem ekler hem çıkarır
-    // $("#pElement").toggle();//gizle ve göster
-
-    // element oluşturma
-    var liElement = $("<li></li>");
-    liElement.text(newTaskName.val());
-    $("#pElement").html("");
-    $("#pElement").append(liElement);
-    $("#pElement").attr("data-id","newAttribute");
-    
-    newTaskName.parent().addClass("bg-danger");
-    newTaskName.parent().parent().addClass("bg-warning");
-//istenilen parent a ulaşabiliriz.
-    newTaskName.parents()[newTaskName.parents().length-1];//en ust parent
-
-    $("#newTaskName").parent().find("[type='checkbox']")[0].checked = true;
-    $("#newTaskName").parent().find("[type='checkbox']")[0].nextElementSibling;//sonraki eleman
-    $("#newTaskName").parent().find("[type='checkbox']")[0].previousElementSibling;//önceki element
-  
-   let children = $(".taskListUl").children();
-   children.each(function(index,element){
-    //console.log(element);
-   })
-
-  
-  });
+      $.ajax({
+                method: "POST",
+                url : requestRoute,
+                beforeSend: function () {
+                    console.log("Before Send");
+                },
+                error: function () {
+                     console.log("hata")
+                 },
+               complete: function (){
+                    console.log("Complete")
+                },
+                success: function(html){
+                  $("#pElement").html("*************** success girdi **************");
+                }
+                // data: {// gönderilecek veri , title veya "title" şeklinde yazılabilir.
+                //     title: "gönderilecek veri",
+                //    body: "body"
+                // },
+                //dataType :"json"
+             }).done(function (data, status) {// done complete den önce çalışır
+                 console.log(data);//{id: 201}
+                 console.log(status);//success
+             });
 
     });
-
+  
+    });
 
     </script>
 
