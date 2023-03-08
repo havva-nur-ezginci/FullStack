@@ -1,0 +1,44 @@
+# docker-compose up
+# docker-compose up -d =>işlemleri terminalde göstermez
+version: "3.9"
+
+# iç, dış port : biri docker içinden diğeri dışından 
+# volumes : projemizdeki servislerdeki verileri docker kapansa da kayıtlı olarak tutmak için
+# environment : kullanıcı adı, parola gibi bilgilerin tutulduğu alan
+# depends_on : phpmyadmin çalışabilmesi için mysql in önce çalışması gerekiyor bu bağımlılığı tanımlarız
+
+services: # servislere istedğimiz ismi verebiliriz.alt satırda iki boşluk
+  mysql:
+    image: mysql:5.7  #mysql:latest
+    ports:
+      - "3306:3306"  # iç port:dış port
+    volumes:
+      - ./settings/docker_mysql5.7:/var/lib/mysql # nereye konucak:sunucunun içinde mysql in yeri
+    environment:
+      #MYSQL_ROOT_PASSWORD: "123456789"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      #MYSQL_USER: "havvanur"
+      MYSQL_USER: ${MYSQL_USER}
+      #MYSQL_PASSWORD: "123456789"
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      PMA_HOST: mysql   # phpmyadmin neyin üstünde çalışıcaksa onun ismini yazıyoruz
+      PMA_USER: root    # şifre sormadan girilsin isteniyorsa direk login olsun
+      PMA_PASSWORD: "123456789"
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    
+
+
+  
+  
+  
+
+
+ 
+ 
