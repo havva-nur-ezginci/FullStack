@@ -23,12 +23,12 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="E-mail Adresinizi Giriniz.">
-          <label for="floatingInput">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="E-mail Adresinizi Giriniz.">
+          <label for="email">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Porolanızı Giriniz.">
+          <label for="password">Password</label>
         </div>
     
         <div class="checkbox mb-3">
@@ -51,13 +51,42 @@
     <script>
         $(document).ready(function(){
             $("#btnSignIn").click(function(){
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Do you want to continue',
+                let email = $("#email").val().trim();//sağ ve solundan boşlukları aldık.
+                let password = $("#password").val().trim();
+
+                if(emailControl(email) && email != null && email != ""){
+
+                  
+                }else{
+                  //sweetalert2
+                  Swal.fire({
                     icon: 'error',
-                    confirmButtonText: 'Cool'
-                });
+                    title: 'Geçerli bir email adresi giriniz...',
+                    text: 'Something went wrong!',         
+                  });
+                }
+                
+                if(password == ""){
+                  Swal.fire({
+                    icon: 'HATA',
+                    title: 'Password giriniz...',
+                    text: 'Something went wrong!',         
+                  });
+                }else{
+                  //sweetalert2
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Geçerli bir email adresi giriniz...',
+                    text: 'Something went wrong!',         
+                  });
+                }
+
+       
             });
+            function emailControl(email){
+                  var regex = /([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;//min:2, max:4 karakter 
+                  return regex.test(email);// eğer regex e uyumluysa true döner.
+                }
 
 
         });
