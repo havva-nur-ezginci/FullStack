@@ -23,7 +23,7 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="email" class="form-control" id="floatingInput" placeholder="E-mail Adresinizi Giriniz.">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
@@ -36,7 +36,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-primary" type="button" id="btnSignIn">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; Havva Nur Ezginci </p>
       </form>
     </main>
@@ -48,5 +48,19 @@
     <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     
     <script src="assets/js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btnSignIn").click(function(){
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Do you want to continue',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                });
+            });
+
+
+        });
+    </script>
 </body>
 </html>
