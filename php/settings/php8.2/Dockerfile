@@ -1,13 +1,9 @@
-FROM php:8.2-fpm  
-# hangi php sürümü kullanıcaz.
+FROM php:8.2-fpm
 
-# ---- sunucu kısmı -------
-
-#kütüphanlerin güncellenmesi
 RUN apt-get update
-RUN apt-get update -y 
+RUN apt-get update -y
 
-#laravel için gerekli kütüphaneler => https://laravel.com/docs/8.x/deployment
+
 RUN apt-get install libzip-dev -y
 RUN apt-get install zip unzip -y
 RUN apt-get install -y git
@@ -26,9 +22,10 @@ RUN apt-get install -y libpng-dev
 RUN apt-get install -y libjpeg-dev
 RUN apt-get install -y libjpeg62-turbo-dev
 
-# docker içine php kurulacak
+RUN apt-get install -y nano
+
+
 RUN docker-php-ext-configure intl && docker-php-ext-install intl
-# gd => laravel de kullanılan grafik kütüphanesi
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd
 
 RUN docker-php-ext-install ldap
@@ -40,11 +37,10 @@ RUN docker-php-ext-install ctype
 RUN docker-php-ext-install fileinfo
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install tokenizer
 
-# curl isteği ile composer kurulumu => https://getcomposer.org/download/
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer global require laravel/installer
 RUN export PATH="/root/.composer/vendor/bin:$PATH"
-# izin
-RUN chown -R www-data:www-data /var/www/html/
+
+RUN chown -R www-data:www-data /var/www/html
