@@ -50,43 +50,37 @@
     <script src="assets/js/script.js"></script>
     <script>
         $(document).ready(function(){
+
+            let warningAlert = {
+                    icon: 'warning',
+                    title: 'Uyarı',
+                    confirmButtonText: "Tamam",
+                    confirmButtonColor: "#f27474"   
+                  }
+        
             $("#btnSignIn").click(function(){
+
                 let email = $("#email").val().trim();//sağ ve solundan boşlukları aldık.
                 let password = $("#password").val().trim();
 
-                if(emailControl(email) && email != null && email != ""){
+                if(emailControl(email) && email != null && email != "" && password != "" && password != null){
 
                   
-                }else{
-                  //sweetalert2
-                  Swal.fire({
-                    icon: 'error',
-                    title: 'Geçerli bir email adresi giriniz...',
-                    text: 'Something went wrong!',         
-                  });
                 }
-                
-                if(password == ""){
-                  Swal.fire({
-                    icon: 'HATA',
-                    title: 'Password giriniz...',
-                    text: 'Something went wrong!',         
-                  });
-                }else{
+                else{
                   //sweetalert2
-                  Swal.fire({
-                    icon: 'error',
-                    title: 'Geçerli bir email adresi giriniz...',
-                    text: 'Something went wrong!',         
-                  });
-                }
-
+                  warningAlert.text = "Email adresi veya şifre hatalı...";
+                  Swal.fire(warningAlert);
+                } 
+              
        
             });
-            function emailControl(email){
-                  var regex = /([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;//min:2, max:4 karakter 
-                  return regex.test(email);// eğer regex e uyumluysa true döner.
-                }
+
+            // email regex kontrol
+          function emailControl(email){
+                var regex = /([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;//min:2, max:4 karakter 
+                return regex.test(email);// eğer regex e uyumluysa true döner.
+              }
 
 
         });
