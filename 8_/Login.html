@@ -62,6 +62,8 @@
 
                 let email = $("#email").val().trim();//sağ ve solundan boşlukları aldık.
                 let password = $("#password").val().trim();
+                $("#btnSignIn").attr("disabled",true);
+                
 
                 if(emailControl(email) && email != null && email != "" && password != "" && password != null){
                   Swal.fire({
@@ -74,6 +76,7 @@
                   //sweetalert2
                   warningAlert.text = "Email adresi veya şifre hatalı...";
                   Swal.fire(warningAlert);
+                  $("#btnSignIn").attr("disabled",false);
                 } 
               
        
