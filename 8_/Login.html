@@ -64,7 +64,10 @@
                 let password = $("#password").val().trim();
 
                 if(emailControl(email) && email != null && email != "" && password != "" && password != null){
-
+                  Swal.fire({
+                    title: 'Giriş Başarılı',
+                    icon: 'success'
+                  });
                   
                 }
                 else{
