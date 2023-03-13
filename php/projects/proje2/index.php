@@ -137,19 +137,68 @@ function topla2(int $sayi1=2,int $sayi2=19):int// :int bu fonksiyonun geri dön�
 
 echo topla2(sayi2:89);//91
 
+print("\n");
+
 // Recursive Fonksiyon 
 
 
+function fibonacci(int $number):int{
+    if($number == 0) return 0;
+    else if($number == 1) return 1;
+    else return (fibonacci($number-1)+fibonacci($number-2));
+}
+$fib = 8;
+
+for($i=1; $i<=$fib; $i++){
+    echo fibonacci($i)." ";
+}
+//"1 1 2 3 5 8 13 21"
+
+print("\n");
+
+// JSON Encode - Decode
+
+$age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+
+$age = json_encode($age);// array => json (string)
+print_r($age);//"{"Peter":35,"Ben":37,"Joe":43}"
+
+print("\n");
+
+$age = json_decode($age);// json => array
 
 
 
+// Dosya oluşturma
+
+//mkdir("./dosyalar");
 
 
+/**r : Sadece okuma işlemini yapar. İmleci yazının başına taşır.
+r+ : Okuma,yazma işlemini yapar. İmleci yazının başına taşır.
+w : Sadece yazma işlemini yapar. Dosya yoksa dosya oluşturur ve dosyada içerik varsa içeriği siler. İmleci yazının başına taşır.
+w+ : Okuma,yazma işlemini yapar. Dosya yoksa dosya oluşturur ve dosyada içerik varsa içeriği siler. İmleci yazının başına taşır.
+a : Sadece yazma işlemini yapar. Dosya yoksa dosya oluşturur. İmleci yazının sonuna taşır.
+a+ : Okuma,yazma işlemini yapar. Dosya yoksa dosya oluşturur. İmleci yazının sonuna taşır.
+ */
 
+$dosya = fopen ("./dosyalar/new.txt" , 'w'); //dosya oluşturma işlemi
+$yaz="Dosya oluşturuldu..."; //dosya içine ne yazmak istiyorsanız buraya yazın. $değer
+fwrite ( $dosya , $yaz ) ;
+fclose ($dosya);
 
+// Superglobals
+/**The PHP superglobal variables are:
 
-
-
+$GLOBALS
+$_SERVER
+$_REQUEST
+$_POST
+$_GET
+$_FILES
+$_ENV
+$_COOKIE
+$_SESSION */
 
 
 ?>
