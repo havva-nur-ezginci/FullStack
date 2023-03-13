@@ -1,6 +1,9 @@
 <?php
 // bu projenin hangi php versiyonuyla çalışacağını nginx=> default.conf dosyasında belirtiyoruz.
 
+// https://www.w3schools.com/php
+
+
 echo 'Merhaba Dünya<br>'.PHP_EOL; 
 // html tarafta br ile html siz tarafta PHP_EOL ile alt satıra geçilir. birleştirme operatörüdür.
 echo "Merhaba Dünya" ;
@@ -309,11 +312,98 @@ foreach($dizi3 as $key => $value){//key=0 => dizi , key=1 => dizi2
     }
 }
 
+$asal = function ($sayi){
+    $adet=0;
+    for($i = 1; $i < $sayi; $i+=2){
+
+        if($sayi%$i==0){ 
+            $adet+=1; 
+            
+        }
+    
+    }
+    if($adet==1){  print_r($sayi." asaldir <br>"); }
+
+    else{ print_r($sayi." asal degildir <br>"); }    
+};
+ 
+$asal(2);
+
+
+// break kullanark döngüleri kırabiliriz. etiketleyerek de kırabiliriz.
+$x = 0;
+
+while($x < 10) {
+  if ($x == 4) {
+    break;
+  }
+  echo "The number is: $x <br>";
+  $x++;
+}
+
+echo "<br>";echo "<br>";
+$x = 0;
+while($x < 10) {
+    if ($x == 4) {
+      $x++;
+      continue;
+    }
+    echo "The number is: $x <br>";
+    $x++;
+  }
+
+echo "<br>";echo "<br>";
+
+//math 
+echo(pi()); // returns 3.1415926535898
+
+echo "<br>";
+echo(min(0, 150, 30, 20, -8, -200));  // returns -200
+echo "<br>";
+echo(max(0, 150, 30, 20, -8, -200));  // returns 150
+echo "<br>";
+echo(abs(-6.7));  // returns 6.7
+echo "<br>";
+echo(rand()."<br>");
+echo(rand(10, 100)."<br>");
+
+
+// Tür dönüşümü
+
+echo "Tür dönüşümleri <br>";
+$x = 4;
+$y = "4";
+$z = 24;
+
+echo $x + $y; //8
+
+echo "<br>";
+echo $x - $y; //0
+
+echo "<br>";
+
+$y = (int)$y; //tür dönüşümü yaparsak denk hale gelir.
+
+// $x = (string)$x;
+
+if($x===$y){
+    echo "Denk <br>";
+}else{
+    echo "Denk değildir.<br>";
+}
+
+
+$x = (array)$x;
+print_r($x); //Array ( [0] => 4 )
+
+echo "<br>";
 
 
 
 
-
+?>
+<?php
+//declare(strict_types=1);// tür kullanımını zorunlu hale getirdik.
 
 
 
