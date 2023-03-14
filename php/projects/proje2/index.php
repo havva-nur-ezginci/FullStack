@@ -201,5 +201,46 @@ $_COOKIE
 $_SESSION */
 
 
+// try - catch
+
+/** Throwable ,Exception, Error
+ * error => hatayı gösterir.
+ * exception => istisnadır tetikletmemiz gerekir.
+*/
+
+
+try{
+    $number = 23/0;
+   
+}catch(Throwable $e){ // Hataların tümü Throwable den türer.
+    print_r($e);
+    /**{
+message:protected: "Division by zero",
+string:Error:private: "",
+code:protected: "0",
+file:protected: "/var/www/html/proje2/index.php",
+line:protected: "208",
+trace:Error:private: { },
+previous:Error:private: ""
+}, */
+    echo "HATA : ".$e->getMessage();//"HATA : Division by zero"
+}
+
+print("\n");
+
+try{
+    $number = 20/10;
+    if($number == 2){
+        throw new Exception("number 2 olamaz.");
+    }
+}catch(Throwable|Exception $e){
+   // print_r($e);
+
+    echo "HATA : ".$e->getMessage();//"HATA : number 2 olamaz."
+}
+
+
+
+
 ?>
 
