@@ -122,7 +122,114 @@ echo "<br>";
 $constant = new Constants();
 $constant->hi();
 
+echo "<br>";
+
 // Abstract Classes and Methods
+
+
+abstract class Car {
+    public $name;
+    public function __construct($name) {
+      $this->name = $name;
+    }
+    abstract protected function intro() : string;
+  }
+  
+  // Child classes
+  class Audi extends Car {
+    public function intro($message="German") : string {
+      return "Choose German quality! I'm an $this->name!"." -$message";
+    }
+  }
+  
+  class Volvo extends Car {
+    public function intro() : string {
+      return "Proud to be Swedish! I'm a $this->name!";
+    }
+  }
+ 
+  
+  // Create objects from the child classes
+  $audi = new audi("Audi");
+  echo $audi->intro("WELCOME TO GERMANY");
+  echo "<br>";
+  
+  $volvo = new volvo("Volvo");
+  echo $volvo->intro();
+  echo "<br>";
+  
+
+// Interfaces
+/**
+ * implements ile kullanılır. 
+ * tüm interface methods public olmalıdır.
+ * interface daki tüm methods abstract
+ * properties bulunmaz.
+ * Sınıflar, aynı anda başka bir sınıftan miras alırken bir interface uygulayabilir.
+ */
+  interface Animal {
+    public function makeSound();
+  }
+  
+  class Cat implements Animal {
+    public function makeSound() {
+      echo "Meow";
+    }
+  }
+  
+  $animal = new Cat();
+  $animal->makeSound();
+
+  echo "<br>";  echo "<br>";
+
+  // Traits
+/**
+ * PHP de  bir alt sınıf yalnızca tek bir ebeveynden miras alabilir.
+ * 
+ * Bir sınıfın birden çok özelliği devralabilmesi için traits kullanılır.
+ * Traits, birden çok sınıfta kullanılabilen methodlara ve abstract methodlara sahip olabilir ve methodlar herhangi bir 
+ * access modifier (public, private, or protected) sahip olabilir.
+ */
+
+ trait message1 {
+    public function msg1() {
+      echo "mesaj1 <br>";
+    }
+  }
+  
+  trait message2 {
+    public function msg2() {
+      echo "mesaj2 <br>";
+    }
+  }
+  
+  class Welcome {
+    use message1;
+  }
+  
+  class Welcome2 {
+    use message1, message2;
+  }
+  
+  $obj = new Welcome();
+  $obj->msg1();
+  echo "<br>";
+  
+  $obj2 = new Welcome2();
+  $obj2->msg1();
+  $obj2->msg2();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
