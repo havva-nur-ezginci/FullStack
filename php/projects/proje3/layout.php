@@ -13,5 +13,5 @@ require "footer.php";
 
 //require_once "footer.php";
 
-include "session.php";
+//include "session.php";
 ?>

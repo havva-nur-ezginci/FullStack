@@ -1,3 +1,8 @@
+<?php 
+include "cookie.php";
+echo "<hr>";
+echo "------session.php-------  <br><br>";
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -14,6 +19,10 @@
 <a href="2.sayfa.php">2.Sayfaya Git</a>
 
 <?php 
+echo "<br>";echo "<br>";
+var_dump($_COOKIE);//array(1) { ["user"]=> string(9) "Havva Nur" }
+
+echo "<br>";echo "<br>";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
