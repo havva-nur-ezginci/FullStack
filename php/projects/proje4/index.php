@@ -1,3 +1,4 @@
+<!-- PHP OOP -->
 <?php
 //PHP Namespaces
 
@@ -359,8 +360,24 @@ echo "<br>".$yilan2->name();
 echo "<br>".$balik1->name();
 echo "<br>".$balik2->name();
 
+echo "<br>";  echo "<br>";
 
+// Iterable
+/**
+ * Iterables, döngüler ile gezilebilen veri yapılarını temsil eder.
+ * Tüm diziler Iterable dır.
+ */
 
+function printIterable(iterable $myIterable) {
+  foreach($myIterable as $item) {
+    echo $item;
+  }
+}
+
+$arr = ["a", "b", "c"];
+printIterable($arr);
+
+echo "<br>";  echo "<br>";
 
 echo "<br>";  echo "<br>";
 
