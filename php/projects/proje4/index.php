@@ -1,4 +1,49 @@
 <?php
+//PHP Namespaces
+
+namespace surungenHayvanlar;
+Class Cins
+{
+    // "Cins" sınıfı içinde "name" isminde bir metod oluşturuyorum.
+    public function name()
+    {
+        return 'surungenHayvanlar\Cins';
+    }
+}
+
+Class YasamAlani
+{
+    // "YasamAlani" sınıfı içinde "name" isminde bir metod oluşturuyorum.
+    public function name()
+    {
+        return 'surungenHayvanlar\YasamAlani';
+    }
+}
+
+namespace omurgaliHayvanlar;
+Class Cins
+{
+    // "Cins" sınıfı içinde "name" isminde bir metod oluşturuyorum.
+    public function name()
+    {
+        return 'omurgaliHayvanlar\Cins';
+    }
+}
+
+Class YasamAlani
+{
+    // "YasamAlani" sınıfı içinde "name" isminde bir metod oluşturuyorum.
+    public function name()
+    {
+        return 'omurgaliHayvanlar\YasamAlani';
+    }
+}
+
+
+?>
+
+
+<?php
 class Fruit {
     public $name;
     protected $color;
@@ -292,9 +337,32 @@ $domain->getStatic();
 echo "<br>";  echo "<br>";
 
 //PHP Namespaces
+/**
+* Aynı ada sahip birden fazla sınıf olması durumda karışıklığı en aza indirmek  için kullanılan bir yapıdır.
+* Bir dosya içinde birden fazla namespace olabilir.
+* alias kullanılabilir. 
+*/
+
+// "surungenHayvanlar" namespace'i içinde bulunan "Cins" Sınıfını tanımladık.
+$yilan1 = new \surungenHayvanlar\Cins;
+
+$yilan2 = new \surungenHayvanlar\YasamAlani;
+
+use omurgaliHayvanlar as o;
+
+$balik1 = new o\Cins;
+
+$balik2 = new o\YasamAlani;
+
+echo "<br>".$yilan1->name();
+echo "<br>".$yilan2->name();
+echo "<br>".$balik1->name();
+echo "<br>".$balik2->name();
 
 
 
+
+echo "<br>";  echo "<br>";
 
 
 ?>
