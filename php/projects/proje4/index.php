@@ -215,25 +215,83 @@ abstract class Car {
   $obj->msg1();
   echo "<br>";
   
-  $obj2 = new Welcome2();
+      $obj2 = new Welcome2();
   $obj2->msg1();
   $obj2->msg2();
 
 
+  echo "<br>";echo "<br>";
 
 
+// Static Methods and Static Properties
 
+class greeting {
 
+  public $prop="";
+  public static $staticProp = "hello everyone";
+  public static function welcome() {
+    echo "Hello welcome <br>";
+  }
+   public function __construct() {
+    self::welcome();
+    self::$staticProp;
+  }
+  public function getStatic() {
+    self::welcome();
+    $this->prop = self::$staticProp;
+  }
 
+}
 
+//nesne oluşturmadan static methoda direk ulaşma
+// Call static method
+greeting::welcome();
+echo greeting::$staticProp;
 
+echo "<br>";
 
+//nesneye de ait olmasını self kullnarak fonksiyondan  bildirebiliriz.
 
+new greeting(); //__construct da bildirdik 
 
+$nesne = new greeting();
+echo $nesne->getStatic();
+echo $nesne->prop;
 
+echo "<br>";
 
+//static yöntem public ise farklı sınıftan da ulaşılabilir.
+class B { 
+  public function message() {
+    greeting::welcome();
+  }
+}
+$obj = new B();
+echo $obj -> message();
 
+echo "<br>";
 
+// Bir alt sınıftan statik bir yöntem çağırmak için, alt sınıf içindeki parent anahtarı kullanılır.
+// statik yöntem public veya protected olmalıdır.
+
+class child extends greeting{
+ 
+  public function __construct() {
+    parent::welcome();
+  }
+  public function getStatic(){
+    echo parent::$staticProp;
+  }
+}
+
+$domain = new child;
+
+$domain->welcome();
+$domain->getStatic();
+
+echo "<br>";  echo "<br>";
+
+//PHP Namespaces
 
 
 
